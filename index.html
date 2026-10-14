@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f8f5">
+    <meta name="description" content="Understand project scope and review new client requests with a private, local AI assistant.">
+    <title>ScopeShield — Keep projects on track</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="ScopeShield home">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <span>scope<span class="brand-light">shield</span></span>
+        </a>
+        <div class="privacy-pill"><span class="status-dot" id="status-dot"></span><span id="connection-status">Checking local AI…</span></div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-line"></span> YOUR FREELANCE SCOPE COPILOT</p>
+            <h1>Keep great work<br>from becoming <em>extra work.</em></h1>
+            <p class="hero-description">Clarify what you agreed to. Review new requests with confidence. Your client text stays on your computer.</p>
+            <div class="hero-proof"><span aria-hidden="true">✳</span> Private by design <span class="proof-divider"></span> Powered by open AI <span class="proof-divider"></span> You stay in control</div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="shield"><span>✓</span></div>
+            <div class="float-card float-card-top"><span class="mini-check">✓</span> Scope is clear</div>
+            <div class="float-card float-card-bottom"><span class="mini-spark">✦</span> Request reviewed</div>
+          </div>
+        </section>
+
+        <section class="workspace" aria-label="Scope assistant">
+          <aside class="steps-panel">
+            <p class="panel-label">YOUR WORKFLOW</p>
+            <button class="step-item active" type="button" data-tab="scope">
+              <span class="step-number">01</span><span class="step-copy"><strong>Understand scope</strong><small>Turn a brief into a checklist</small></span>
+            </button>
+            <button class="step-item" type="button" data-tab="request">
+              <span class="step-number">02</span><span class="step-copy"><strong>Review a request</strong><small>Compare it with the agreement</small></span>
+            </button>
+            <div class="sidebar-note">
+              <span class="note-icon" aria-hidden="true">✦</span>
+              <strong>AI is your assistant,<br>not your decision-maker.</strong>
+              <p>Review every suggestion before sharing it with a client.</p>
+            </div>
+          </aside>
+
+          <div class="work-panel">
+            <div class="tab-content active" id="scope-panel">
+              <div class="section-heading">
+                <div><p class="panel-label">STEP 1 · START WITH THE AGREEMENT</p><h2>What did you agree to?</h2></div>
+                <button class="text-button" id="load-sample" type="button">Try a sample <span aria-hidden="true">↗</span></button>
+              </div>
+              <p class="section-intro">Paste the client brief, proposal, or statement of work. ScopeShield will organize the details and flag what still needs clarification.</p>
+              <label class="field-label" for="brief">PROJECT BRIEF <span>Private · processed locally</span></label>
+              <textarea id="brief" maxlength="20000" placeholder="Example: Build a five-page website for a yoga studio. Include a home page, class schedule, instructor bios, contact form, and mobile-friendly design. Client provides copy and photos. Two revision rounds included. Launch in six weeks."></textarea>
+              <div class="form-footer"><span id="brief-count">0 / 20,000</span><button class="primary-button" id="analyze-button" type="button"><span>Clarify this scope</span><span aria-hidden="true">→</span></button></div>
+              <p class="error-message" id="scope-error" role="alert" hidden></p>
+              <div class="results" id="scope-results" hidden></div>
+            </div>
+
+            <div class="tab-content" id="request-panel" hidden>
+              <div class="section-heading">
+                <div><p class="panel-label">STEP 2 · CHECK A NEW ASK</p><h2>Does it fit the scope?</h2></div>
+                <span class="saved-badge" id="saved-badge" hidden>Saved scope loaded</span>
+              </div>
+              <p class="section-intro">Compare a new client request with the agreed scope. Get a reasoned assessment and a reply draft to review.</p>
+              <label class="field-label" for="agreed-scope">AGREED SCOPE <span>Original brief, not AI assumptions</span></label>
+              <textarea id="agreed-scope" class="short-textarea" maxlength="20000" placeholder="Paste the actual agreed scope here, or analyze a brief in Step 1 to load the original text. Confirm this reflects your agreement before comparing."></textarea>
+              <label class="field-label second-field" for="new-request">NEW CLIENT REQUEST</label>
+              <textarea id="new-request" class="request-textarea" maxlength="20000" placeholder="Example: Can you also add a members-only portal with user profiles and booking history?"></textarea>
+              <div class="form-footer"><span class="local-note"><span class="status-dot"></span> Reviewed by AI, sent by you</span><button class="primary-button" id="compare-button" type="button"><span>Review request</span><span aria-hidden="true">→</span></button></div>
+              <p class="error-message" id="request-error" role="alert" hidden></p>
+              <div class="results" id="request-results" hidden></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="how-section">
+          <div><p class="panel-label">SIMPLE, NOT MAGIC</p><h2>Clarity before the work begins.</h2></div>
+          <div class="how-grid">
+            <article><span class="how-number">01</span><h3>Read the agreement</h3><p>Open AI extracts the deliverables, assumptions, and unanswered questions from your brief.</p></article>
+            <article><span class="how-number">02</span><h3>Review the new ask</h3><p>Compare a client's follow-up with what was agreed. See what matches, changes, or needs a conversation.</p></article>
+            <article><span class="how-number">03</span><h3>Make your call</h3><p>Get a reply draft—not an automatic message. You decide what to send and how to proceed.</p></article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer"><a class="brand footer-brand" href="/"><span class="brand-mark" aria-hidden="true">S</span><span>scope<span class="brand-light">shield</span></span></a><span>Local-first AI for independent work.</span><span>Advice, not legal or pricing guidance.</span></footer>
+    </div>
+  </body>
+</html>
